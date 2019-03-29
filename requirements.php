@@ -30,7 +30,7 @@ if (!isset($frameworkPath)) {
 
 if (!isset($frameworkPath) || !is_dir($frameworkPath)) {
     $message = "<h1>Error</h1>\n\n"
-        . "<p><strong>The path to yii framework seems to be incorrect.</strong></p>\n"
+        . "<p><strong>The path to yiishop framework seems to be incorrect.</strong></p>\n"
         . '<p>You need to install Yii framework via composer or adjust the framework path in file <abbr title="' . __FILE__ . '">' . basename(__FILE__) . "</abbr>.</p>\n"
         . '<p>Please refer to the <abbr title="' . dirname(__FILE__) . "/README.md\">README</abbr> on how to install Yii.</p>\n";
 
@@ -105,22 +105,22 @@ $requirements = array(
         'name' => 'Memcache extension',
         'mandatory' => false,
         'condition' => extension_loaded('memcache') || extension_loaded('memcached'),
-        'by' => '<a href="http://www.yiiframework.com/doc-2.0/yii-caching-memcache.html">MemCache</a>',
-        'memo' => extension_loaded('memcached') ? 'To use memcached set <a href="http://www.yiiframework.com/doc-2.0/yii-caching-memcache.html#$useMemcached-detail">MemCache::useMemcached</a> to <code>true</code>.' : ''
+        'by' => '<a href="http://www.yiiframework.com/doc-2.0/yiishop-caching-memcache.html">MemCache</a>',
+        'memo' => extension_loaded('memcached') ? 'To use memcached set <a href="http://www.yiiframework.com/doc-2.0/yiishop-caching-memcache.html#$useMemcached-detail">MemCache::useMemcached</a> to <code>true</code>.' : ''
     ),
     // CAPTCHA:
     array(
         'name' => 'GD PHP extension with FreeType support',
         'mandatory' => false,
         'condition' => $gdOK,
-        'by' => '<a href="http://www.yiiframework.com/doc-2.0/yii-captcha-captcha.html">Captcha</a>',
+        'by' => '<a href="http://www.yiiframework.com/doc-2.0/yiishop-captcha-captcha.html">Captcha</a>',
         'memo' => $gdMemo,
     ),
     array(
         'name' => 'ImageMagick PHP extension with PNG support',
         'mandatory' => false,
         'condition' => $imagickOK,
-        'by' => '<a href="http://www.yiiframework.com/doc-2.0/yii-captcha-captcha.html">Captcha</a>',
+        'by' => '<a href="http://www.yiiframework.com/doc-2.0/yiishop-captcha-captcha.html">Captcha</a>',
         'memo' => $imagickMemo,
     ),
     // PHP ini :
@@ -153,7 +153,7 @@ if (!version_compare(phpversion(), '5.5', '>=')) {
         'name' => 'APC extension',
         'mandatory' => false,
         'condition' => extension_loaded('apc'),
-        'by' => '<a href="http://www.yiiframework.com/doc-2.0/yii-caching-apccache.html">ApcCache</a>',
+        'by' => '<a href="http://www.yiiframework.com/doc-2.0/yiishop-caching-apccache.html">ApcCache</a>',
     );
 }
 
