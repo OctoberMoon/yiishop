@@ -6,21 +6,31 @@ use app\modules\models\Admin;
 class PublicController extends \yii\web\Controller
 {
     public $layout=false;
+
+    /**
+     * 登陆操作
+     */
     public function actionLogin()
     {
         $model=new Admin();
-//        if (Yii::$app->session['admin']['isLogin']) {
-//            $this->redirect(['default/index']);
-//            Yii::$app->end();
-//        }
-//        if (Yii::$app->request->isPost){
-//            if($model->login(Yii::$app->request->post()))
-//                $this->redirect(['default/index']);
-//            Yii::$app->end();
-//
-//        }
+        if (Yii::$app->session['admin']['isLogin']) {
+            $this->redirect(['default/index']);
+            Yii::$app->end();
+        }
+        if (Yii::$app->request->isPost){
+//            var_dump(Yii::$app->request->post());die;
+            if($model->login(Yii::$app->request->post())){
+                $this->redirect(['default/index']);
+                Yii::$app->end();
+            }
+
+        }
         return $this->render('login',['model'=>$model]);
     }
+
+    /**
+     * 退出操作
+     */
     public function actionLogout(){
         Yii::$app->session->remove('admin');
         if(!Yii::$app->session['admin']['isLogin']){
@@ -29,6 +39,10 @@ class PublicController extends \yii\web\Controller
         }
         $this->goBack();
     }
+
+    /**
+     * 邮箱发送找回密码
+     */
     public function actionSeekpassword(){
         $model=new Admin();
         if (Yii::$app->request->isPost){
@@ -38,7 +52,7 @@ class PublicController extends \yii\web\Controller
             }
 
         }
-        return $this->render('seekpassword',['model'=>$model]);
+        return $this->render('seekpassword',compact('model'));
     }
 
 }

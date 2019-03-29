@@ -22,14 +22,16 @@ use yii\helpers\Html;
     <link rel="stylesheet" href="assets/admin/css/compiled/signin.css" type="text/css" media="screen" />
     <!-- open sans font -->
     <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <!--<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>-->
     <![endif]-->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 
 <body>
 <div class="row-fluid login-wrapper">
     <a class="brand" href="index.html"></a>
-    <?php $form = ActiveForm::begin() ?>
+    <?php $form = ActiveForm::begin([
+
+    ]) ?>
 
     <div class="span4 box">
         <div class="content-wrap">
@@ -44,7 +46,7 @@ use yii\helpers\Html;
 
                 <a href="<?=\yii\helpers\Url::toRoute('public/seekpassword')?>" class="forgot">忘记密码?</a>
                 <div class="form-group field-remember-me">
-                    <?= $form->field($model,'rememberMe')->checkbox([
+                    <?= $form->field($model,'remberMe')->checkbox([
                         'id'=>"remember-me",
                         'template'=>'<div class="remember">{input}{label}</div>'
                     ])->label('记住我') ?>
