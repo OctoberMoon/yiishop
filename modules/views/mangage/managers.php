@@ -33,6 +33,9 @@
                     </thead>
                     <tbody>
                     <!-- row -->
+                    <?php if (Yii::$app->session->hasFlash('info')) {
+                        echo Yii::$app->session->getFlash('info');
+                    }?>
                     <?php foreach ($managers as $manager): ?>
                     <tr>
                         <td><?= $manager->admin_id; ?></td>
@@ -42,14 +45,12 @@
                         <td><?= long2ip($manager->login_ip); ?></td>
                         <td><?= date('Y-m-d H:i:s',$manager->create_time); ?></td>
                         <td class="align-right">
-                            <a href="<?= Url::to(['mangage/del', 'adminid' => $manager->admin_id]) ?>">删除</a></td>
+                            <a href="<?= Url::to(['mangage/del', 'admin_id' => $manager->admin_id]) ?>">删除</a></td>
                     </tr>
                     <?php endforeach; ?>
                     </tbody>
                 </table>
-                <?php if (Yii::$app->session->hasFlash('info')) {
-                    echo Yii::$app->session->getFlash('info');
-                }?>
+
             </div>
             <div class="pagination pull-right">
                 <?= yii\widgets\LinkPager::widget(['pagination' => $pager, 'prevPageLabel' => '&#8249', 'nextPageLabel' => '&#8250'])?>

@@ -59,7 +59,9 @@ class MangageController extends Controller
         ]);
     }
 
-    //添加管理员
+    /**
+     * 添加管理员
+     */
     public function actionReg()
     {
         $this->layout = 'layout';
@@ -84,49 +86,57 @@ class MangageController extends Controller
         ]);
     }
 
-    //删除管理员
+    /**
+     * 删除管理员
+     */
     public function actionDel()
     {
-        $adminid = (int)Yii::$app->request->get('adminid');
-        if (empty($adminid)) {
+        $admin_id = (int)Yii::$app->request->get('admin_id');
+        if (empty($admin_id)) {
             $this->redirect(['mangage/managers']);
         }
         $model = new Admin();
-        if($model->deleteAll('adminid = :id', [':id' => $adminid])) {
+        if($model->deleteAll('admin_id = :id', [':id' => $admin_id])) {
             Yii::$app->session->setFlash('info', '删除成功!');
             $this->redirect(['mangage/managers']);
         }
     }
 
-    //修改邮箱
+    /**
+     * 修改邮箱
+     * @return string
+     */
     public function actionChangeemail()
     {
         $this->layout = 'layout';
-        $model = Admin::find()->where('adminuser = :user', [':user' => Yii::$app->session['admin']['adminuser']])->one();
+        $model = Admin::find()->where('admin_name = :user', [':user' => Yii::$app->session['admin']['admin']])->one();
         if (Yii::$app->request->isPost) {
             $post = Yii::$app->request->post();
             if ($model->changeEmail($post)) {
                 Yii::$app->session->setFlash('info','修改成功');
             }
         }
-        $model->adminpass = '';
+        $model->admin_pass = '';
         return $this->render('changeemail', [
             'model' => $model,
         ]);
     }
 
-    //修改密码
+    /**
+     * 修改密码
+     * @return string
+     */
     public function actionChangepass()
     {
         $this->layout = 'layout';
-        $model = Admin::find()->where('adminuser = :user', [':user' => Yii::$app->session['admin']['adminuser']])->one();
+        $model = Admin::find()->where('admin_name = :user', [':user' => Yii::$app->session['admin']['admin']])->one();
         if (Yii::$app->request->isPost) {
             $post = Yii::$app->request->post();
             if ($model->changePass($post)) {
                 Yii::$app->session->setFlash('info','修改成功！');
             }
         }
-        $model->adminpass = '';
+        $model->admin_pass = '';
         $model->repass = '';
         return $this->render('changepass', [
             'model' => $model,

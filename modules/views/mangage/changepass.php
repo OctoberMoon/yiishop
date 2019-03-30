@@ -21,8 +21,8 @@
                                 'template' => '<div class="span12 field-box">{label}{input}{error}</div>'
                             ],
                         ]) ?>
-                        <?= $form->field($model,'adminuser')->textInput(['class' => 'span9', 'disabled' => true ]) ?>
-                        <?= $form->field($model,'adminpass')->passwordInput(['class' => 'span9']) ?>
+                        <?= $form->field($model,'admin_name')->textInput(['class' => 'span9', 'disabled' => true ]) ?>
+                        <?= $form->field($model,'admin_pass')->passwordInput(['class' => 'span9']) ?>
                         <?= $form->field($model,'repass')->passwordInput(['class' => 'span9']) ?>
 
                             <div class="span11 field-box actions">

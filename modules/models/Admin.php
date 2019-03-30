@@ -18,7 +18,6 @@ class Admin extends ActiveRecord
         return '{{%admin}}';
     }
 
-
     /**
      * 数据验证
      */
@@ -47,14 +46,6 @@ class Admin extends ActiveRecord
     public function attributeLabels()
     {
         return [
-//            'adminid' => 'Adminid',
-//            'admin_name' => 'Adminuser',
-//            'admin_pass' => 'Admin_pass',
-//            'admin_email' => 'Adminemail',
-//            'logintime' => 'Logintime',
-//            'loginip' => 'Loginip',
-//            'createtime' => 'Createtime',
-
             'admin_name' => '管理员账号',
             'admin_pass' => '管理员密码',
             'admin_email' => '管理员邮箱',
@@ -72,6 +63,13 @@ class Admin extends ActiveRecord
                 $this->addError('admin_pass','用户名或密码错误');
         }
     }
+    public function validataEmail(){
+        if (!$this->hasErrors()){
+            $user=self::find()->where('admin_name = :user and admin_email = :admin_email',[":user"=>$this->admin_name,":admin_email"=>$this->admin_email])->one();
+            if (is_null($user))
+                $this->addError('admin_email','email错误！');
+        }
+    }
     /**
      * 登录操作
      * @param $post
@@ -87,7 +85,6 @@ class Admin extends ActiveRecord
                 @session_regenerate_id(true);
                 session_start();
             }
-//            session_set_cookie_params($rem);
             $session['admin']=[
                 'admin'=>$this->admin_name,
                 'isLogin'=>1,
@@ -120,8 +117,11 @@ class Admin extends ActiveRecord
         return md5(md5($admin_name).base64_encode(Yii::$app->request->userIP).md5($time));
     }
 
-    //修改密码
-
+    /**
+     * 修改密码
+     * @param $data
+     * @return bool
+     */
     public function changePass($data)
     {
         $this->scenario = 'changepass';
@@ -130,8 +130,12 @@ class Admin extends ActiveRecord
         }
         return false;
     }
-    //管理员注册
 
+    /**
+     * 管理员注册
+     * @param $data
+     * @return bool
+     */
     public function reg($data)
     {
         $this->scenario = 'adminadd';
@@ -145,8 +149,11 @@ class Admin extends ActiveRecord
         }
         return false;
     }
-    //修改邮箱
 
+    /**
+     * 修改邮箱
+     * @return bool
+     */
     public function changeEmail($data)
     {
         $this->scenario = 'changeemail';
@@ -155,11 +162,5 @@ class Admin extends ActiveRecord
         }
         return false;
     }
-    public function validataEmail(){
-        if (!$this->hasErrors()){
-            $user=self::find()->where('admin_name = :user and admin_email = :admin_email',[":user"=>$this->admin_name,":admin_email"=>$this->admin_email])->one();
-            if (is_null($user))
-                $this->addError('admin_email','email错误！');
-        }
-    }
+
 }
