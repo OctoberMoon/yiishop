@@ -1,7 +1,10 @@
+<?php
+use yii\helpers\Url;
+?>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>SHOP商城 - 后台管理</title>
+    <title>慕课商城 - 后台管理</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -42,7 +45,7 @@
             <span class="icon-bar"></span>
         </button>
 
-        <a class="brand" href="index.html" style="font-weight:700;font-family:Microsoft Yahei">SHOP商城 - 后台管理</a>
+        <a class="brand" href="index.html" style="font-weight:700;font-family:Microsoft Yahei">慕课商城 - 后台管理</a>
 
         <ul class="nav pull-right">
             <li class="hidden-phone">
@@ -135,8 +138,8 @@
                     <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="">个人信息管理</a></li>
-                    <li><a href="">修改密码</a></li>
+                    <li><a href="<?= Url::to(['mangage/changeemail']) ?>">个人信息管理</a></li>
+                    <li><a href="<?= Url::to(['mangage/changepass']) ?>">修改密码</a></li>
                     <li><a href="#">订单管理</a></li>
                 </ul>
             </li>
@@ -146,7 +149,7 @@
                 </a>
             </li>
             <li class="settings hidden-phone">
-                <a href="<?php echo yii\helpers\Url::to(['public/logout']) ?>" role="button">
+                <a href="<?= Url::to(['public/logout']) ?>" role="button">
                     <i class="icon-share-alt"></i>
                 </a>
             </li>
@@ -168,6 +171,7 @@
                 <span>后台首页</span>
             </a>
         </li>
+
         <li>
             <a class="dropdown-toggle" href="#">
                 <i class="icon-user"></i>
@@ -175,11 +179,10 @@
                 <i class="icon-chevron-down"></i>
             </a>
             <ul class="submenu">
-                <li><a href="">管理员列表</a></li>
-                <li><a href="">加入新管理员</a></li>
+                <li><a href="<?= Url::to(['mangage/managers']) ?>">管理员列表</a></li>
+                <li><a href="<?= Url::to(['mangage/reg']) ?>">加入新管理员</a></li>
             </ul>
         </li>
-
         <li>
             <a class="dropdown-toggle" href="#">
                 <i class="icon-group"></i>
@@ -187,8 +190,8 @@
                 <i class="icon-chevron-down"></i>
             </a>
             <ul class="submenu">
-                <li><a href="">用户列表</a></li>
-                <li><a href="">加入新用户</a></li>
+                <li><a href="<?= Url::to(['user/users']) ?>">用户列表</a></li>
+                <li><a href="<?= Url::to(['user/reg']) ?>">加入新用户</a></li>
             </ul>
         </li>
         <li>
@@ -198,8 +201,8 @@
                 <i class="icon-chevron-down"></i>
             </a>
             <ul class="submenu">
-                <li><a href="">分类列表</a></li>
-                <li><a href="">加入分类</a></li>
+                <li><a href="/index.php?r=admin%2Fcategory%2Flist">分类列表</a></li>
+                <li><a href="/index.php?r=admin%2Fcategory%2Fadd">加入分类</a></li>
             </ul>
         </li>
         <li>
@@ -209,8 +212,8 @@
                 <i class="icon-chevron-down"></i>
             </a>
             <ul class="submenu">
-                <li><a href="">商品列表</a></li>
-                <li><a href="">添加商品</a></li>
+                <li><a href="/index.php?r=admin%2Fproduct%2Flist">商品列表</a></li>
+                <li><a href="/index.php?r=admin%2Fproduct%2Fadd">添加商品</a></li>
             </ul>
         </li>
         <li>
@@ -220,7 +223,7 @@
                 <i class="icon-chevron-down"></i>
             </a>
             <ul class="submenu">
-                <li><a href="">订单列表</a></li>
+                <li><a href="/index.php?r=admin%2Forder%2Flist">订单列表</a></li>
             </ul>
         </li>
 
@@ -230,7 +233,6 @@
 <!-- end sidebar -->
 
 <?php echo $content; ?>
-
 
 <!-- scripts -->
 <script src="/assets/admin/js/jquery-latest.js"></script>
@@ -371,4 +373,6 @@
 
 </body>
 </html>
+
+
 
