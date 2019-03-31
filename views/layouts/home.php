@@ -1,3 +1,6 @@
+<?php
+use yii\helpers\Url;
+?>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -53,8 +56,12 @@
 
             <div class="col-xs-12 col-sm-6 no-margin">
                 <ul class="right">
-                    <li><a href="authentication.html">注册</a></li>
-                    <li><a href="authentication.html">登录</a></li>
+                    <?php if (\Yii::$app->session['isLogin'] == 1): ?>
+                        你好，欢迎回来 <?php echo \Yii::$app->session['login_name'] ?>, <a href="<?= Url::to(['member/logout']) ?>">退出</a>
+                    <?php else: ?>
+                        <li><a href="<?= Url::to(['member/auth']) ?>">注册</a></li>
+                        <li><a href="<?= Url::to(['member/auth']) ?>">登录</a></li>
+                    <?php endif; ?>
                 </ul>
             </div><!-- /.col -->
         </div><!-- /.container -->

@@ -1,6 +1,5 @@
 
         <div class="container">
-
             <div class="col-xs-12 col-sm-4 col-md-3 sidemenu-holder">
                 <!-- ================================== TOP NAVIGATION ================================== -->
                 <div class="side-menu animate-dropdown">

@@ -1,3 +1,6 @@
+<?php
+use yii\helpers\Url;
+?>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -10,7 +13,7 @@
     <meta name="keywords" content="">
     <meta name="robots" content="all">
 
-    <title>商品分类 - SHOP商城</title>
+    <title>商品分类1 - SHOP商城</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -44,7 +47,7 @@
         <div class="container">
             <div class="col-xs-12 col-sm-6 no-margin">
                 <ul>
-                    <li><a href="index.html">首页</a></li>
+                    <li><a href="index1.html">首页</a></li>
                     <li><a href="category-grid.html">所有分类</a></li>
                     <li><a href="cart.html">我的购物车</a></li>
                     <li><a href="orders.html">我的订单</a></li>
@@ -53,8 +56,12 @@
 
             <div class="col-xs-12 col-sm-6 no-margin">
                 <ul class="right">
-                    <li><a href="authentication.html">注册</a></li>
-                    <li><a href="authentication.html">登录</a></li>
+                    <?php if (\Yii::$app->session['isLogin'] == 1): ?>
+                        你好，欢迎回来 <?php echo \Yii::$app->session['login_name'] ?>, <a href="<?= Url::to(['member/logout']) ?>">退出</a>
+                    <?php else: ?>
+                        <li><a href="<?php Url::to(['member/auth']) ?>">注册</a></li>
+                        <li><a href="<?php Url::to(['member/auth']) ?>">登录</a></li>
+                    <?php endif; ?>
                 </ul>
             </div><!-- /.col -->
         </div><!-- /.container -->

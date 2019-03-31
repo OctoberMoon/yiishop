@@ -35,9 +35,9 @@ class User extends \yii\db\ActiveRecord
     {
         return [
             ['login_name', 'required', 'message' => '登录用户名不能为空', 'on' => ['login']],
-            ['openid', 'required', 'message' => 'openid不能为空', 'on' => ['qqreg']],
+            ['open_id', 'required', 'message' => 'openid不能为空', 'on' => ['qqreg']],
             ['user_name', 'required', 'message' => '用户名不能为空', 'on' => ['reg', 'regbymail', 'qqreg']],
-            ['openid', 'unique', 'message' => 'openid已经被注册', 'on' => ['qqreg']],
+            ['open_id', 'unique', 'message' => 'openid已经被注册', 'on' => ['qqreg']],
             ['user_name', 'unique', 'message' => '用户已经被注册', 'on' => ['reg', 'regbymail', 'qqreg']],
             ['user_email', 'required', 'message' => '电子邮件不能为空', 'on' => ['reg', 'regbymail']],
             ['user_email', 'email', 'message' => '电子邮件格式不正确', 'on' => ['reg', 'regbymail']],
@@ -68,7 +68,7 @@ class User extends \yii\db\ActiveRecord
         return $this->hasOne(Profile::className(), ['user_id' => 'user_id']);
     }
 
-    public function reg($data, $scenario = 'reg')
+    public function reg($data,$scenario='reg')
     {
         $this->scenario = $scenario;
         if ($this->load($data) && $this->validate()) {
@@ -82,17 +82,17 @@ class User extends \yii\db\ActiveRecord
         return false;
     }
 
-    public function regByEmail($data, $scenario = 'rebyemail')
+    public function regByMail($data)
     {
-        $this->scenario = $scenario;
-        $data['User']['user_name'] = 'imooc_'.uniqid();
+        $this->scenario = 'regbymail';
+        $data['User']['user_name'] = 'shop_'.uniqid();
         $data['User']['user_pass'] = uniqid();
         if ($this->load($data) && $this->validate()) {
-            $mailer = Yii::$app->mailer->compose();
-            $mailer->setFrom('sun_iit@163.com');
+            $mailer = Yii::$app->mailer->compose('create_user',['user_name'=>$data['User']['user_name'],'user_pass'=>$data['User']['user_pass']]);
+            $mailer->setFrom('shop@163.com');
             $mailer->setTo($data['User']['user_email']);
-            $mailer->setSubject('慕课商城-新建用户');
-            if ($mailer->send() && $this->reg($data, 'regbyemail')) {
+            $mailer->setSubject('SHOP商城-创建用户');
+            if ($mailer->send() && $this->reg($data,'regbymail')) {
                 return true;
             }
             return false;
@@ -104,10 +104,14 @@ class User extends \yii\db\ActiveRecord
     {
         $this->scenario = "login";
         if ($this->load($data) && $this->validate()) {
-            //做点有意义的事
             $lifetime = $this->rememberMe ? 24*3600 : 0;
             $session = Yii::$app->session;
-            session_set_cookie_params($lifetime);
+            if(!isset($_SESSION)){
+                session_set_cookie_params($lifetime);
+                @session_regenerate_id(true);
+                session_start();
+            }
+//            session_set_cookie_params($lifetime);
             $session['login_name'] = $this->login_name;
             $session['isLogin'] = 1;
             return (bool)$session['isLogin'];
