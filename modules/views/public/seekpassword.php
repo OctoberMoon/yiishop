@@ -8,7 +8,7 @@ use yii\helpers\Url;
 <html class="login-bg">
 
 <head>
-    <title>慕课商城 - 后台管理</title>
+    <title>SHOP商城 - 后台管理</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- bootstrap -->
     <link href="assets/admin/css/bootstrap/bootstrap.css" rel="stylesheet" />
@@ -34,7 +34,7 @@ use yii\helpers\Url;
     <?php $form = ActiveForm::begin() ?>
     <div class="span4 box">
         <div class="content-wrap">
-            <h6>慕课商城 - 找回密码</h6>
+            <h6>SHOP商城 - 找回密码</h6>
             <?php echo  Yii::$app->session->getFlash('info') ?>
             <div class="form-group field-admin-adminuser">
                 <p class="help-block help-block-error"></p>

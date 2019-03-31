@@ -36,7 +36,7 @@
     ]); ?>
         <div class="span4 box">
             <div class="content-wrap">
-                <h6>慕课商城 - 修改密码</h6>
+                <h6>SHOP商城 - 修改密码</h6>
                 <?php
                     if (Yii::$app->session->hasFlash('info')) {
                         echo Yii::$app->session->getFlash('info');

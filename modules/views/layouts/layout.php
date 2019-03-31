@@ -4,7 +4,7 @@ use yii\helpers\Url;
 <!DOCTYPE html>
 <html>
 <head>
-    <title>慕课商城 - 后台管理</title>
+    <title>SHOP商城 - 后台管理</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -45,7 +45,7 @@ use yii\helpers\Url;
             <span class="icon-bar"></span>
         </button>
 
-        <a class="brand" href="index.html" style="font-weight:700;font-family:Microsoft Yahei">慕课商城 - 后台管理</a>
+        <a class="brand" href="index.html" style="font-weight:700;font-family:Microsoft Yahei">SHOP商城 - 后台管理</a>
 
         <ul class="nav pull-right">
             <li class="hidden-phone">
@@ -166,7 +166,7 @@ use yii\helpers\Url;
                 <div class="arrow"></div>
                 <div class="arrow_border"></div>
             </div>
-            <a href="index.html">
+            <a href="<?= Url::to(['default/index']) ?>">
                 <i class="icon-home"></i>
                 <span>后台首页</span>
             </a>
@@ -201,8 +201,8 @@ use yii\helpers\Url;
                 <i class="icon-chevron-down"></i>
             </a>
             <ul class="submenu">
-                <li><a href="/index.php?r=admin%2Fcategory%2Flist">分类列表</a></li>
-                <li><a href="/index.php?r=admin%2Fcategory%2Fadd">加入分类</a></li>
+                <li><a href="<?= Url::to(['category/list']) ?>">分类列表</a></li>
+                <li><a href="<?= Url::to(['category/add']) ?>">加入分类</a></li>
             </ul>
         </li>
         <li>
@@ -212,8 +212,8 @@ use yii\helpers\Url;
                 <i class="icon-chevron-down"></i>
             </a>
             <ul class="submenu">
-                <li><a href="/index.php?r=admin%2Fproduct%2Flist">商品列表</a></li>
-                <li><a href="/index.php?r=admin%2Fproduct%2Fadd">添加商品</a></li>
+                <li><a href="<?= Url::to(['product/list']) ?>">商品列表</a></li>
+                <li><a href="<?= Url::to(['product/add']) ?>">添加商品</a></li>
             </ul>
         </li>
         <li>
@@ -223,7 +223,7 @@ use yii\helpers\Url;
                 <i class="icon-chevron-down"></i>
             </a>
             <ul class="submenu">
-                <li><a href="/index.php?r=admin%2Forder%2Flist">订单列表</a></li>
+                <li><a href="<?= Url::to(['order/list']) ?>">订单列表</a></li>
             </ul>
         </li>
 
