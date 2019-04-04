@@ -27,8 +27,6 @@ class Product extends \yii\db\ActiveRecord
     const SK = 'hnnXZ_24PKwpQsFS6t3eYjt-NzaxO0eG4Yg8EzMM';
     const DOMAIN = 'ppa6qi2pu.bkt.clouddn.com';
     const BUCKET = 'test';
-    public $ison;
-    public $istui;
 
     /**
      * @inheritdoc

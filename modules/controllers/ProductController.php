@@ -7,6 +7,7 @@ use app\models\Category;
 use yii\web\Controller;
 use app\models\Product;
 use crazyfd\qiniu\Qiniu;
+use yii\data\Pagination;
 
 class ProductController extends Controller
 {
@@ -14,8 +15,11 @@ class ProductController extends Controller
 
     public function actionIndex()
     {
-        $products = [];
-        $pager    = '10';
+        $model = Product::find();
+        $count = $model->count();
+        $pageSize = Yii::$app->params['pageSize']['product'];
+        $pager = new Pagination(['totalCount' => $count, 'pageSize' => $pageSize]);
+        $products = $model->offset($pager->offset)->limit($pager->limit)->all();
         return $this->render("index", compact('products', 'pager'));
     }
 
@@ -31,7 +35,6 @@ class ProductController extends Controller
         unset($list[0]);
         if (Yii::$app->request->isPost) {
             $post = Yii::$app->request->post();
-            var_dump($post);die;
             $pics = $this->upload();
             if (!$pics) {
                 $model->addError('cover','封面不能为空');
@@ -60,7 +63,7 @@ class ProductController extends Controller
         $qiniu = new Qiniu(Product::AK,Product::SK,Product::DOMAIN, Product::BUCKET,$zone);
         $key = uniqid();
         $qiniu->uploadFile($_FILES['Product']['tmp_name']['cover'],$key);
-        $url = $qiniu->getLink($key);
+        $cover = $qiniu->getLink($key);
         $pics =[];
         foreach ($_FILES['Product']['tmp_name']['pics'] as $k=>$file) {
             if ($_FILES['Product']['error']['pics'][$k] > 0) {

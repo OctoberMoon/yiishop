@@ -49,7 +49,7 @@ use yii\helpers\Html;
                         echo $form->field($model, 'cover')->fileInput(['class' => 'span9']);
                         if (!empty($model->cover)):
                             ?>
-                            <img src="http://<?php echo $model->cover;?>-covermiddle">
+                            <img src="http://<?php echo $model->cover;?>-coverbig">
                             <hr>
                             <?php
                         endif;
@@ -58,7 +58,7 @@ use yii\helpers\Html;
                         <?php
                         foreach((array)json_decode($model->pics, true) as $k=>$pic) {
                             ?>
-                            <img src="http://<?php echo $pic ?>-coversmall">
+                            <img src="http://<?php echo $pic ?>">
                             <a href="<?php echo yii\helpers\Url::to(['product/removepic', 'key' => $k, 'productid' => $model->productid]) ?>">删除</a>
                             <?php
                         }

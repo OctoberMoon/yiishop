@@ -54,7 +54,7 @@
                     <?php foreach($products as $product): ?>
                         <tr class="first">
                             <td>
-                                <img src="http://<?= $product->cover; ?>-coversmall" class="img-circle avatar hidden-phone" />
+                                <img src="http://<?= $product->cover; ?>" class="img-circle avatar hidden-phone" />
                                 <a href="#" class="name"><?php echo $product->title; ?></a>
                             </td>
                             <td>
@@ -84,10 +84,10 @@
                             </td>
 
                             <td class="align-right">
-                                <a href="<?php echo yii\helpers\Url::to(['product/mod', 'productid' => $product->productid]); ?>">编辑</a>
-                                <a href="<?php echo yii\helpers\Url::to(['product/on', 'productid' => $product->productid]); ?>">上架</a>
-                                <a href="<?php echo yii\helpers\Url::to(['product/off', 'productid' => $product->productid]); ?>">下架</a>
-                                <a href="<?php echo yii\helpers\Url::to(['product/del', 'productid' => $product->productid]); ?>">删除</a>
+                                <a href="<?php echo yii\helpers\Url::to(['product/mod', 'pro_id' => $product->pro_id]); ?>">编辑</a>
+                                <a href="<?php echo yii\helpers\Url::to(['product/on', 'pro_id' => $product->pro_id]); ?>">上架</a>
+                                <a href="<?php echo yii\helpers\Url::to(['product/off', 'pro_id' => $product->pro_id]); ?>">下架</a>
+                                <a href="<?php echo yii\helpers\Url::to(['product/del', 'pro_id' => $product->pro_id]); ?>">删除</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
