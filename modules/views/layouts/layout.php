@@ -212,7 +212,7 @@ use yii\helpers\Url;
                 <i class="icon-chevron-down"></i>
             </a>
             <ul class="submenu">
-                <li><a href="<?= Url::to(['product/list']) ?>">商品列表</a></li>
+                <li><a href="<?= Url::to(['product/index']) ?>">商品列表</a></li>
                 <li><a href="<?= Url::to(['product/add']) ?>">添加商品</a></li>
             </ul>
         </li>

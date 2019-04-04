@@ -125,6 +125,10 @@ class Category extends \yii\db\ActiveRecord
         return $tree;
     }
 
+    /**
+     * 处理分类数据
+     * @return array
+     */
     public function getOptions()
     {
         $data = $this->getData();
@@ -137,6 +141,10 @@ class Category extends \yii\db\ActiveRecord
         return $options;
     }
 
+    /**
+     * 获取列表数据
+     * @return array
+     */
     public function getTreeList()
     {
         $data = $this->getData();
@@ -145,6 +153,10 @@ class Category extends \yii\db\ActiveRecord
         return $tree;
     }
 
+    /**
+     * 分页添加 暂不可用
+     * @return array
+     */
     public static function getMenu()
     {
         $top = self::find()->where('parent_id = :pid', [":pid" => 0])->limit(11)->orderby('create_time asc')->asArray()->all();

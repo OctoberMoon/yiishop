@@ -15,13 +15,22 @@ use app\models\Category;
 class CategoryController extends Controller
 {
     public $layout = 'layout';
+
+    /**
+     * 分类列表
+     * @return string
+     */
     public function actionList()
     {
         $model = new Category;
-        $cates = $model->getTreeList();
+        $cates = $model->getMenu();
         return $this->render('cates',compact('cates'));
     }
 
+    /**
+     * 添加分类操作
+     * @return string
+     */
     public function actionAdd()
     {
         $model = new Category();
@@ -35,6 +44,10 @@ class CategoryController extends Controller
         return $this->render('add',compact('model','list'));
     }
 
+    /**
+     * 编辑分类操作
+     * @return string
+     */
     public function actionMod()
     {
         $model = new Category();
@@ -53,6 +66,9 @@ class CategoryController extends Controller
         ]);
     }
 
+    /**
+     * 删除分类操作
+     */
     public function actionDel()
     {
         try{

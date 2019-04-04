@@ -41,46 +41,10 @@
                     </tr>
                     <?php endforeach; ?>
 
-<!--                    <tr class="first">-->
-<!--                        <td>2</td>-->
-<!--                        <td>|-----|-----上衣</td>-->
-<!--                        <td class="align-right">-->
-<!--                            <a href="/index.php?r=admin%2Fcategory%2Fmod&cate_id=2">编辑</a>-->
-<!--                            <a href="/index.php?r=admin%2Fcategory%2Fdel&cate_id=2">删除</a></td>-->
-<!--                    </tr>-->
-<!--                    <tr class="first">-->
-<!--                        <td>3</td>-->
-<!--                        <td>|-----电子产品</td>-->
-<!--                        <td class="align-right">-->
-<!--                            <a href="/index.php?r=admin%2Fcategory%2Fmod&cate_id=3">编辑</a>-->
-<!--                            <a href="/index.php?r=admin%2Fcategory%2Fdel&cate_id=3">删除</a></td>-->
-<!--                    </tr>-->
-<!--                    <tr class="first">-->
-<!--                        <td>6</td>-->
-<!--                        <td>|-----|-----手机</td>-->
-<!--                        <td class="align-right">-->
-<!--                            <a href="/index.php?r=admin%2Fcategory%2Fmod&cate_id=6">编辑</a>-->
-<!--                            <a href="/index.php?r=admin%2Fcategory%2Fdel&cate_id=6">删除</a></td>-->
-<!--                    </tr>-->
-<!--                    <tr class="first">-->
-<!--                        <td>4</td>-->
-<!--                        <td>|-----充气娃娃</td>-->
-<!--                        <td class="align-right">-->
-<!--                            <a href="/index.php?r=admin%2Fcategory%2Fmod&cate_id=4">编辑</a>-->
-<!--                            <a href="/index.php?r=admin%2Fcategory%2Fdel&cate_id=4">删除</a></td>-->
-<!--                    </tr>-->
-<!--                    <tr class="first">-->
-<!--                        <td>5</td>-->
-<!--                        <td>|-----|-----仓也空井也空</td>-->
-<!--                        <td class="align-right">-->
-<!--                            <a href="/index.php?r=admin%2Fcategory%2Fmod&cate_id=5">编辑</a>-->
-<!--                            <a href="/index.php?r=admin%2Fcategory%2Fdel&cate_id=5">删除</a></td>-->
-<!--                    </tr>-->
                     </tbody>
                 </table>
             </div>
             <div class="pagination pull-right"></div>
-            <!-- end users table --></div>
+        </div>
     </div>
 </div>
-<!-- end main container -->

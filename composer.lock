@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5fab93c4c3f2210b1dcdb07ae50e2c9c",
+    "content-hash": "56718fed05ff3b13642e1e8a219879aa",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -80,6 +80,24 @@
                 "reference": "38c8d3131a82567bfef18da09f7f4db68c84f8a3"
             },
             "type": "bower-asset"
+        },
+        {
+            "name": "bower-asset/vue",
+            "version": "v1.0.28-patch1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vuejs/vue.git",
+                "reference": "c45cfee24d222b68b8e6a320863cb7e13c15f2bc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vuejs/vue/zipball/c45cfee24d222b68b8e6a320863cb7e13c15f2bc",
+                "reference": "c45cfee24d222b68b8e6a320863cb7e13c15f2bc"
+            },
+            "type": "bower-asset",
+            "license": [
+                "MIT"
+            ]
         },
         {
             "name": "bower-asset/yii2-pjax",
@@ -167,6 +185,53 @@
                 "markdown-extra"
             ],
             "time": "2018-03-26T11:24:36+00:00"
+        },
+        {
+            "name": "crazyfd/yii2-qiniu",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/crazyfd/upload.git",
+                "reference": "9deca0ee51bbf8e1462b919208b03cef02f2b013"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/crazyfd/upload/zipball/9deca0ee51bbf8e1462b919208b03cef02f2b013",
+                "reference": "9deca0ee51bbf8e1462b919208b03cef02f2b013",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "crazyfd\\qiniu\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "crazyfd",
+                    "email": "crazyfd@qq.com"
+                }
+            ],
+            "description": "yii2上传到七牛云存储",
+            "keywords": [
+                "qiniu",
+                "upload",
+                "yii"
+            ],
+            "time": "2018-12-04T06:03:28+00:00"
         },
         {
             "name": "doctrine/lexer",
@@ -343,6 +408,62 @@
                 "html"
             ],
             "time": "2018-02-23T01:58:20+00:00"
+        },
+        {
+            "name": "omnilight/yii2-vuejs",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/omnilight/yii2-vuejs.git",
+                "reference": "4942e1aa3f31ec118fcf8e6c2c4cf04ba06f7612"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/omnilight/yii2-vuejs/zipball/4942e1aa3f31ec118fcf8e6c2c4cf04ba06f7612",
+                "reference": "4942e1aa3f31ec118fcf8e6c2c4cf04ba06f7612",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "bower-asset/vue": "^1.0.0",
+                "php": "~5.5|~7.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "omnilight\\assets\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pavel Agalecky",
+                    "email": "pavel.agalecky@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Vue.js library for Yii2 framework",
+            "homepage": "https://github.com/omnilight/yii2-vuejs",
+            "keywords": [
+                "omnilight",
+                "vue",
+                "vuejs",
+                "yii2"
+            ],
+            "time": "2016-03-09T14:00:53+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3751,16 +3872,16 @@
         },
         {
             "name": "yiisoft/yii2-debug",
-            "version": "2.1.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-debug.git",
-                "reference": "426bafcdb0328de66202ae53da1fbe24660d010f"
+                "reference": "632929c0682c6470ec838cf15d14c22418e6d07f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/426bafcdb0328de66202ae53da1fbe24660d010f",
-                "reference": "426bafcdb0328de66202ae53da1fbe24660d010f",
+                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/632929c0682c6470ec838cf15d14c22418e6d07f",
+                "reference": "632929c0682c6470ec838cf15d14c22418e6d07f",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3810,7 +3931,7 @@
                 "debugger",
                 "yii2"
             ],
-            "time": "2019-03-17T17:47:00+00:00"
+            "time": "2019-03-30T20:33:53+00:00"
         },
         {
             "name": "yiisoft/yii2-faker",
@@ -3925,7 +4046,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "crazyfd/yii2-qiniu": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

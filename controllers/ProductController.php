@@ -2,17 +2,17 @@
 namespace app\controllers;
 
 use yii\web\Controller;
+use app\models\Product;
 class ProductController extends Controller
 {
-    public $layout=false;
+    public $layout = 'layout_auth';
     public function actionIndex(){
-        $this->layout="layout_auth";
-        return $this->render("index");
+        $products = [];
+        return $this->render("index",compact('products'));
     }
 
     public function actionDetail()
     {
-        $this->layout="layout_auth";
         return $this->render("detail");
     }
 }
